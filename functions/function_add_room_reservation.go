@@ -8,106 +8,106 @@ import (
 //SDK Method is required an company 
 func newAddRoomReservation() openai.FunctionDefinition {
 	return openai.FunctionDefinition{
-		Name: "AddRoomReservationFunc",
+		Name: "add_room_reservation",
 		Description: `The function creates a new reservation in the database by incoming parameters, and returns the reservation ID.`,
 		Parameters: &jsonschema.Definition{
 			Type: jsonschema.Object,
 			Properties: map[string]jsonschema.Definition{
-				"DateArrival": {
+				"date_arrival": {
 					Type: jsonschema.String,
 					Description: "Date of arrival in format YYYY-MM-DD",
 				},
-				"DateDeparture": {
+				"date_departure": {
 					Type: jsonschema.String,
 					Description: "Date of departure in format YYYY-MM-DD",
 				},
-				"TimeArrival": {
+				"time_arrival": {
 					Type: jsonschema.String,
 					Description: "Time of arrival in format HH:MM",
 				},
-				"TimeDeparture": {
+				"time_departure": {
 					Type: jsonschema.String,
 					Description: "Time of arrival in format HH:MM",
 				},
-				"Adults": {
+				"adults": {
 					Type: jsonschema.Integer,
 					Description: "Number of adults. Must be equal or greater than 1.",
 				},
-				"ChildAges": {
+				"child_ages": {
 					Type: jsonschema.Array,
 					Items: &jsonschema.Definition{Type: jsonschema.Integer},
 					Description: "Array of children's ages",
 				},
-				"IsExtraBedUsed": {
+				"is_extra_bed_used": {
 					Type: jsonschema.Boolean,
 					Description: "Is there a need for an extra bed.",
 				},
-				"GuestLastName": {
+				"guest_last_name": {
 					Type: jsonschema.String,
 					Description: "Guest Last Name",
 				},
-				"GuestFirstName": {
+				"guest_first_name": {
 					Type: jsonschema.String,
 					Description: "Guest First Name",
 				},
-				"RoomTypeID": {
+				"room_type_id": {
 					Type: jsonschema.Integer,
-					Description: "Room Type ID",
+					Description: "Room Type ID. The list of room types and their IDs can be obtained using the get_room_types_list function",
 				},
-				"PaidType": {
+				"paid_type": {
 					Type: jsonschema.String,
 					Enum: []string{"100", "200", "300"},
 					Description: "Payment Type. 100 for cash, 200 for credit card, 300 for cashless",
 				},
-				"NeedTransport": {
+				"need_transport": {
 					Type: jsonschema.String,
 					Enum: []string{"0", "1"},
 					Description: "0 if the guest does not need to order transportation, 1 if the guest needs to order transportation",
 				},
-				"IsTouristTax": {
+				"is_tourist_tax": {
 					Type: jsonschema.String,
 					Enum: []string{"0", "1"},
 					Description: "A sign of inclusion of the tourist tax in the automatically created invoice. 1 if the tourist tax is included (the guest is traveling for tourist purposes), 0 if the tourist tax is not included (the guest is traveling on business, is on a business trip).",
 				},
-				"AgencyCategory": {
+				"agency_category": {
 					Type: jsonschema.String,
 					Enum: []string{"0", "1", "2"},
 					Description: "The guest category. 0 - not specified (the default category configured for the hotel will be used), 1 - Resident, 2 - Non-resident.",
 				},
-				"Country": {
+				"country": {
 					Type: jsonschema.String,
 					Description: "Guest Country",
 				},
-				"Address": {
+				"address": {
 					Type: jsonschema.String,
 					Description: "Guest Address",
 				},
-				"Phone": {
+				"phone": {
 					Type: jsonschema.String,
 					Description: "Guest Phone",
 				},
-				"Fax": {
+				"fax": {
 					Type: jsonschema.String,
 					Description: "Guest Fax",
 				},
-				"Email": {
+				"email": {
 					Type: jsonschema.String,
 					Description: "Guest Email",
 				},
-				"BirthDate": {
+				"birth_date": {
 					Type: jsonschema.String,
-					Description: "Guest BirthDate in format YYYY-MM-DD",
+					Description: "Guest Birth Day in format YYYY-MM-DD",
 				},
-				"Comment": {
+				"comment": {
 					Type: jsonschema.String,
-					Description: "Any Comment",
+					Description: "Any comment",
 				},
-				"ContactName": {
+				"contact_name": {
 					Type: jsonschema.String,
 					Description: "Contact Person Name",
 				},
 			},
-			Required: []string{"DateArrival", "DateDeparture", "Adults", "GuestLastName", "GuestFirstName", "RoomTypeID", "PaidType", "NeedTransport", "IsTouristTax"},
+			Required: []string{"date_arrival", "date_departure", "adults", "guest_last_name", "guest_first_name", "room_type_id", "paid_type", "need_transport", "is_tourist_tax"},
 		},
 	}
 }

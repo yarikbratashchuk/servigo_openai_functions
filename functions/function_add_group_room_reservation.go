@@ -8,104 +8,104 @@ import (
 //SDK Method is required an company 
 func newAddGroupRoomReservation() openai.FunctionDefinition {
 	return openai.FunctionDefinition{
-		Name: "AddGroupRoomReservationFunc",
+		Name: "add_group_room_reservation",
 		Description: `The function creates a new reservation in the database by incoming parameters, and returns the reservation ID.`,
 		Parameters: &jsonschema.Definition{
 			Type: jsonschema.Object,
 			Properties: map[string]jsonschema.Definition{
-				"RoomReservations": {
+				"room_reservations": {
 					Type: jsonschema.Array,
 					Description: "Array of group reservations",
 					Items: &jsonschema.Definition{
 						Type: jsonschema.Object,
 						Properties: map[string]jsonschema.Definition{
-							"GuestName": {
+							"guest_name": {
 								Type: jsonschema.String,
 								Description: "Guest Full Name",
 							},
-							"DateArrival": {
+							"date_arrival": {
 								Type: jsonschema.String,
 								Description: "Date of arrival in format YYYY-MM-DD",
 							},
-							"DateDeparture": {
+							"date_departure": {
 								Type: jsonschema.String,
 								Description: "Date of departure in format YYYY-MM-DD",
 							},
-							"TimeArrival": {
+							"time_arrival": {
 								Type: jsonschema.String,
 								Description: "Time of arrival in format HH:MM",
 							},
-							"TimeDeparture": {
+							"time_departure": {
 								Type: jsonschema.String,
 								Description: "Time of arrival in format HH:MM",
 							},
-							"Adults": {
+							"adults": {
 								Type: jsonschema.Integer,
 								Description: "Number of adults. Must be equal or greater than 1.",
 							},
-							"ChildAges": {
+							"child_ages": {
 								Type: jsonschema.Array,
 								Items: &jsonschema.Definition{Type: jsonschema.Integer},
 								Description: "Array of children's ages",
 							},
-							"IsExtraBedUsed": {
+							"is_extra_bed_used": {
 								Type: jsonschema.Boolean,
 								Description: "Is there a need for an extra bed.",
 							},
-							"RoomTypeID": {
+							"room_type_id": {
 								Type: jsonschema.Integer,
-								Description: "Room Type ID",
+								Description: "Room Type ID. The list of room types and their IDs can be obtained using the get_room_types_list function",
 							},
-							"NeedTransport": {
+							"need_transport": {
 								Type: jsonschema.String,
 								Enum: []string{"0", "1"},
 								Description: "0 if the guest does not need to order transportation, 1 if the guest needs to order transportation",
 							},
-							"IsTouristTax": {
+							"is_tourist_tax": {
 								Type: jsonschema.String,
 								Enum: []string{"0", "1"},
 								Description: "A sign of inclusion of the tourist tax in the automatically created invoice. 1 if the tourist tax is included (the guest is traveling for tourist purposes), 0 if the tourist tax is not included (the guest is traveling on business, is on a business trip).",
 							},
-							"AgencyCategory": {
+							"agency_category": {
 								Type: jsonschema.String,
 								Enum: []string{"0", "1", "2"},
 								Description: "The guest category. 0 - not specified (the default category configured for the hotel will be used), 1 - Resident, 2 - Non-resident.",
 							},
 						},
 					},
-					Required: []string{"DateArrival", "DateDeparture", "Adults", "GuestName", "RoomTypeID", "NeedTransport", "IsTouristTax"},
+					Required: []string{"date_arrival", "date_departure", "adults", "guest_name", "room_type_id", "need_transport", "is_tourist_tax"},
 				},
-				"GroupName": {
+				"group_name": {
 					Type: jsonschema.String,
 					Description: "Group Name",
 				},
-				"PaidType": {
+				"paid_type": {
 					Type: jsonschema.String,
 					Enum: []string{"100", "200", "300"},
 					Description: "Payment Type. 100 for cash, 200 for credit card, 300 for cashless",
 				},
-				"Country": {
+				"country": {
 					Type: jsonschema.String,
 					Description: "Guest Country",
 				},
-				"ContactInfo": {
+				"contact_info": {
 					Type: jsonschema.String,
 					Description: "Contact Person Info",
 				},
-				"ContactEmail": {
+				"contact_email": {
 					Type: jsonschema.String,
 					Description: "Contact Person Email",
 				},
-				"Comment": {
+				"comment": {
 					Type: jsonschema.String,
 					Description: "Any Comment",
 				},
-				"ContactName": {
+				"contact_name": {
 					Type: jsonschema.String,
 					Description: "Contact Person Name",
 				},
 			},
-			Required: []string{"RoomReservations", "GroupName", "PaidType"},
+			Required: []string{"room_reservations", "group_name", "paid_type"},
 		},
 	}
 }
