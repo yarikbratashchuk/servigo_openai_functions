@@ -78,6 +78,7 @@ func (s *ServioService) AddRoomReservation(agrs string) (string, error) {
 		IsTouristTax: isTouristTax,
 		NeedTransport: needTransport,
 		Phone: arguments.Phone,
+		PriceListID: priceListID1,
 	}
 
 	ctx := context.Background()

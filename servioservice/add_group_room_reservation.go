@@ -20,13 +20,13 @@ func (s *ServioService) AddGroupRoomReservation(agrs string) (string, error) {
 		PaidType        string             `json:"paid_type"`
 		RoomReservations []struct{
 			Adults          int      `json:"adults"`
-			AgencyCategory  string   `json:"agency_category,omitempty"`
+			AgentCategory  string   `json:"agent_category,omitempty"`
 			ChildAges       []int    `json:"child_ages,omitempty"`
 			DateArrival     string   `json:"date_arrival"`
 			DateDeparture   string   `json:"date_departure"`
 			GuestName       string   `json:"guest_name"`
 			IsExtraBedUsed  bool     `json:"is_extra_bed_used,omitempty"`
-			IsTouristTax    string   `json:"is_tourist_tax"`
+			IsTouristTax    bool   `json:"is_tourist_tax"`
 			NeedTransport   string   `json:"need_transport"`
 			RoomTypeID      int      `json:"room_type_id"`
 			TimeArrival     string   `json:"time_arrival,omitempty"`
@@ -50,13 +50,13 @@ func (s *ServioService) AddGroupRoomReservation(agrs string) (string, error) {
 
 		needTransport, _ := strconv.Atoi(roomReservationItem.NeedTransport)
 
-		var isTouristTax bool
+		// var isTouristTax bool
 
-		if roomReservationItem.IsTouristTax == "1" {
-			isTouristTax = true
-		}
+		// if roomReservationItem.IsTouristTax == "1" {
+		// 	isTouristTax = true
+		// }
 
-		agencyCategory, _ := strconv.Atoi(roomReservationItem.AgencyCategory)
+		agentCategory, _ := strconv.Atoi(roomReservationItem.AgentCategory)
 
 		roomReservation := servigo.RoomReservation{
 			GuestName: roomReservationItem.GuestName,
@@ -70,10 +70,10 @@ func (s *ServioService) AddGroupRoomReservation(agrs string) (string, error) {
 			IsExtraBedUsed: roomReservationItem.IsExtraBedUsed,
 			RoomTypeID: roomReservationItem.RoomTypeID,
 			NeedTransport: needTransport,
-			IsTouristTax: isTouristTax,
-			AgentCategory: agencyCategory,
+			IsTouristTax: roomReservationItem.IsTouristTax,
+			AgentCategory: agentCategory,
 			ContractConditionID: contractConditionID,
-			PriceListID: priceListID,
+			PriceListID: priceListID2,
 		}
 		roomReservations = append(roomReservations, roomReservation)
 	}
@@ -82,6 +82,7 @@ func (s *ServioService) AddGroupRoomReservation(agrs string) (string, error) {
 		HotelID: hotelID,
 		GroupName: arguments.GroupName,
 		CompanyID: companyID,
+		Iso3Country: servigo.Ukraine,
 		Country: arguments.Country,
 		PaidType: servigo.PaidType(paidType),
 		ContactName: arguments.ContactName,

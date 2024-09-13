@@ -62,11 +62,10 @@ func newAddGroupRoomReservation() openai.FunctionDefinition {
 								Description: "0 if the guest does not need to order transportation, 1 if the guest needs to order transportation",
 							},
 							"is_tourist_tax": {
-								Type: jsonschema.String,
-								Enum: []string{"0", "1"},
-								Description: "A sign of inclusion of the tourist tax in the automatically created invoice. 1 if the tourist tax is included (the guest is traveling for tourist purposes), 0 if the tourist tax is not included (the guest is traveling on business, is on a business trip).",
+								Type: jsonschema.Boolean,
+								Description: "A sign of inclusion of the tourist tax in the automatically created invoice. True if the tourist tax is included (the guest is traveling for tourist purposes), False if the tourist tax is not included (the guest is traveling on business, is on a business trip).",
 							},
-							"agency_category": {
+							"agent_category": {
 								Type: jsonschema.String,
 								Enum: []string{"0", "1", "2"},
 								Description: "The guest category. 0 - not specified (the default category configured for the hotel will be used), 1 - Resident, 2 - Non-resident.",

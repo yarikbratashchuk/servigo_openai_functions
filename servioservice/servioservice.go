@@ -10,7 +10,8 @@ const (
 	hotelID = 1
 	companyID = 4
 	contractConditionID = 1
-	priceListID = 1
+	priceListID1 = 1
+	priceListID2 = 2
 )
 
 var (

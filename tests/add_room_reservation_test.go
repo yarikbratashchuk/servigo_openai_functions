@@ -19,8 +19,8 @@ const addRoomReservationData = `{
     "comment": "Early check-in requested",
     "contact_name": "John Doe",
     "country": "USA",
-    "date_arrival": "2024-09-15",
-    "date_departure": "2024-09-20",
+    "date_arrival": "2024-12-15",
+    "date_departure": "2024-12-20",
     "email": "johndoe@example.com",
     "fax": "555-123456",
     "guest_first_name": "John",
@@ -30,7 +30,7 @@ const addRoomReservationData = `{
     "need_transport": "1",
     "paid_type": "200",
     "phone": "555-654321",
-    "room_type_id": 101,
+    "room_type_id": 2,
     "time_arrival": "14:00",
     "time_departure": "11:00"
   }`
