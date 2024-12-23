@@ -1,7 +1,7 @@
 package servioservice
 
 import (
-	"github.com/rostis232/servigo"
+	"github.com/yarikbratashchuk/servigo"
 )
 
 const (

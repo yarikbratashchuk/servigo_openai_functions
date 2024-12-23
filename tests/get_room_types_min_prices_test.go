@@ -5,7 +5,7 @@ import (
 	"testing"
 
 	"github.com/joho/godotenv"
-	"github.com/rostis232/servigo_openai_functions/servioservice"
+	"github.com/yarikbratashchuk/servigo_openai_functions/servioservice"
 	"github.com/stretchr/testify/assert"
 )
 

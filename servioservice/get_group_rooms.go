@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/rostis232/servigo"
+	"github.com/yarikbratashchuk/servigo"
 )
 
 func (s *ServioService) GetGroupRooms(agrs string) (string, error) {

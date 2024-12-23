@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/rostis232/servigo_openai_functions/functions"
+	"github.com/yarikbratashchuk/servigo_openai_functions/functions"
 )
 
 func main(){

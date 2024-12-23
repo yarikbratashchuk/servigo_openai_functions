@@ -1,10 +1,10 @@
-module github.com/rostis232/servigo_openai_functions
+module github.com/yarikbratashchuk/servigo_openai_functions
 
 go 1.22.4
 
 require (
 	github.com/joho/godotenv v1.5.1
-	github.com/rostis232/servigo v0.1.4
+	github.com/yarikbratashchuk/servigo v0.1.4
 	github.com/sashabaranov/go-openai v1.28.2
 	github.com/stretchr/testify v1.9.0
 )

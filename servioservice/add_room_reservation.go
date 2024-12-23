@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/rostis232/servigo"
+	"github.com/yarikbratashchuk/servigo"
 )
 
 func (s *ServioService) AddRoomReservation(agrs string) (string, error) {
